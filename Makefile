@@ -4,9 +4,9 @@ ifneq ($(OS),Windows_NT)
 	OS := $(shell uname -s)
 endif
 
-#CFLAGS = -fno-stack-protector -Os -o cc3200reset
-CFLAGS = -Os -o cc3200reset -mmacosx-version-min=10.5
-GCC = gcc
+CFLAGS = -fno-stack-protector -Os -o cc3200reset
+#CFLAGS = -Os -o cc3200reset -mmacosx-version-min=10.5
+GCC = g++
 
 ifeq ($(OS),Darwin)
 LDFLAGS = -lobjc -framework CoreFoundation -framework IOKit
