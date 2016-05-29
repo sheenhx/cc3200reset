@@ -46,7 +46,7 @@ void reset(void *ptr)
 #endif
 	unsigned char b = 0;
 
-	b &= ~(1 << 6);
+	b |= (1 << 6);
 	b |= (1 << 0);
 	b &= ~(1 << 5);
 #if defined(__APPLE__) || defined(__linux__)
@@ -70,7 +70,7 @@ bool init_ftdi()
 #if defined(__APPLE__) || defined(__linux__)
 	ftdi_init(&ftdic);
 
-	ftdi_set_interface(&ftdic, INTERFACE_A);
+	ftdi_set_interface(&ftdic, INTERFACE_ANY);
 
 	if(ftdi_usb_open(&ftdic, 0x0451 , 0xC32A) < 0) {
 		puts("Can't open device");
